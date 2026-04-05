@@ -8,3 +8,4 @@ beautifulsoup4
 lxml
 wordcloud
 xgboost
+streamlit
