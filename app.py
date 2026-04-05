@@ -4,14 +4,14 @@ import nltk
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
 
-# -------------------- Page Config --------------------
+#  Page Config 
 st.set_page_config(
     page_title="Spam Detector",
     page_icon="📩",
     layout="centered"
 )
 
-# -------------------- Custom CSS --------------------
+#Css
 st.markdown("""
 <style>
 .main {
@@ -39,7 +39,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# -------------------- NLP Setup --------------------
+# NLP Setup
 @st.cache_resource
 def load_nltk():
     nltk.download('punkt')
@@ -59,11 +59,11 @@ def text_preproceser(text):
     words = [lemmatizer.lemmatize(word) for word in words]
     return " ".join(words)
 
-# -------------------- Load Model --------------------
+# Load Mode
 tfidf = pickle.load(open('artifacts/vectorizer.pkl','rb'))
 model = pickle.load(open('artifacts/model.pkl','rb'))
 
-# -------------------- UI --------------------
+# UI
 st.title("📩 SMS Spam Detection")
 st.markdown("Detect whether a message is **Spam or Not Spam** using Machine Learning 🤖")
 
